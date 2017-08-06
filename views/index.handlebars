@@ -1,0 +1,29 @@
+<h1>EAT DA BURGER</h1>
+<img src="/assets/img/burger.ico" alt="burger" />
+
+<h2>Add A Burger You Want To Eat</h2>
+<form class="create-update-form" action="/" method="POST">
+
+  <div class="form-group">
+    <label for="ca">Burger:</label>
+    <input type="text" id="ca" name="burger_name"
+  </div>
+
+  <button type="submit">Add Burger</button>
+</form>
+
+<ul>
+  {{#each burgers}}
+
+      <li>
+        {{this.burger_name}}
+
+        <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="devoured" value="1">
+          <button type="submit">Devour It!</button>
+        </form>
+
+      </li>
+  {{/each}}
+</ul>
+
